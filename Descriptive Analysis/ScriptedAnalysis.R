@@ -21,5 +21,8 @@ Furnishing <- read_excel("~/Documents/GitHub/Consumer-trust-In-E-Commerce-In-Ind
 Furnishing$Category <- "Furnishing"
 Products <- list(Baby, Books, Bottles, Furnishing, Groceries, Gym, Laptops, Mobiles, Sports, Tools)
 Products <- as.data.frame(do.call(rbind, Products))
+rm(list=setdiff(ls(), "Products"))
 library(psych)
-describe.by(Products$Trust, group = Products$Category, mat = TRUE)
+describeBy(Products$Trust, group = Products$Category, mat = TRUE)
+library(readxl)
+SampledProducts <- read_excel("Documents/GitHub/Consumer-trust-In-E-Commerce-In-India/Products.xlsx")
