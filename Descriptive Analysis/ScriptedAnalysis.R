@@ -26,3 +26,12 @@ library(psych)
 describeBy(Products$Trust, group = Products$Category, mat = TRUE)
 library(readxl)
 SampledProducts <- read_excel("Documents/GitHub/Consumer-trust-In-E-Commerce-In-India/Products.xlsx")
+library(ggplot2)
+ggplot(SampledProducts, aes(x=Price, y=Avg_rating)) +
+  geom_point(alpha = 0.5, colour = "red") + ylab("Average Rating")+
+  scale_colour_brewer(palette="RdYlBu") + 
+  theme_bw() + 
+  facet_wrap( ~ Category, ncol = 5)+
+  theme(strip.text = element_text(face="bold", size=rel(1.5)),
+        strip.background = element_rect(fill="lightgreen", colour="black",
+                                        size=1))
